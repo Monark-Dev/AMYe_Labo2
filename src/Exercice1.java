@@ -10,6 +10,7 @@ public class Exercice1 {
         int tarifParJour;
         char reponse = 'O';
         double totalDesVentes = 0;
+        String facture = "";
         
         do{
             BufferedReader clavier = new BufferedReader(new InputStreamReader(System.in));
@@ -48,12 +49,14 @@ public class Exercice1 {
                     totalAPayer *= 0.95;
     
             totalDesVentes += totalAPayer;
+            
             String montantDollarCanadien = NumberFormat.getCurrencyInstance(Locale.CANADA_FRENCH).format(totalAPayer); 
-            System.out.println(nomDuClient + " doit payer " + montantDollarCanadien);
+            facture += "\n" + nomDuClient + " doit payer " + montantDollarCanadien;
+            System.out.println(facture);
             
 
             System.out.print("Voulez-vous continuer ? O / N  : ");
-            reponse = clavier.readLine().charAt(0);
+            reponse = clavier.readLine().toUpperCase().charAt(0);
 
             
     
